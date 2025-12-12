@@ -6,6 +6,8 @@ use App\Models\Idioma;
 use App\Http\Requests\StoreIdiomaRequest;
 use App\Http\Requests\UpdateIdiomaRequest;
 
+use Illuminate\Support\Facades\Schema;
+
 class IdiomaController extends Controller
 {
     /**

@@ -16,7 +16,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //selecciona todos los alumnos (select * from alumnos)
-        $alumnos = Alumno::all();
+        $alumnos = Alumno::paginate(10);
         $campos = Schema::getColumnListing('alumnos');
         return view("alumnos.listado", compact("alumnos","campos"));
     }
@@ -26,7 +26,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view("alumnos.create");
     }
 
     /**
@@ -34,7 +34,11 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        $datos_alumnos = $request->input();
+        Alumno::create($datos_alumnos);
+
+    return redirect()->route('alumnos.index')
+                     ->with('success', 'Alumno creado correctamente.');
     }
 
     /**
@@ -50,7 +54,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view ("alumnos.edit", compact("alumno"));
     }
 
     /**
@@ -58,7 +62,7 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        //
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -67,8 +71,6 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno)
     {
         $alumno->delete();
-        $alumnos = Alumno::all();
-        $campos = Schema::getColumnListing('alumnos');
-        return view("alumnos.listado", compact("alumnos","campos"));
+        return redirect()->route('alumnos.index');
     }
 }

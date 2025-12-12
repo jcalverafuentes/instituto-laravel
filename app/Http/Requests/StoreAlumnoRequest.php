@@ -11,7 +11,7 @@ class StoreAlumnoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreAlumnoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "nombre" => "required|string|min:5|max:255",
+            "apellido" => "required|string|min:5|max:255",
+            "email" => "required|email|unique",
+            "fecha_nacimiento" => "required|date",
         ];
     }
 }

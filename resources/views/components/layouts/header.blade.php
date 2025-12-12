@@ -23,6 +23,13 @@
             @csrf
             <input class="btn btn-secondary" type="submit" name="logout">
         </form>
+        @role("admin")
+        <a href="">
+            <button type="submit" class="btn btn-primary">
+                Administrar
+            </button>
+        </a>
+        @endrole
         @endauth
     </div>
 </header>

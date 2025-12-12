@@ -6,6 +6,8 @@ use App\Models\Proyecto;
 use App\Http\Requests\StoreProyectoRequest;
 use App\Http\Requests\UpdateProyectoRequest;
 
+use Illuminate\Support\Facades\Schema;
+
 class ProyectoController extends Controller
 {
     /**

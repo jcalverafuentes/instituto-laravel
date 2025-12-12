@@ -1,10 +1,14 @@
 <x-layouts.layout>
+  
   <div class="overflow-x-auto w-full min-h-screen p-6">
+        <button type="submit" class="btn btn-primary">
+          <a href="{{route('alumnos.create')}}">Crear alumno</a>
+        </button>
   <table class="table table-xs table-pin-rows table-pin-cols w-full">
-    <thead>
+    <thead> 
       <tr>
         @foreach ($campos as $campo)
-          <th>{{$campo}}</th>
+          <th>{{$campo}}</th> 
         @endforeach
       </tr>
     </thead>
@@ -18,12 +22,12 @@
         <td>{{$alumno->fecha_nacimiento}}</td>
         <td>{{$alumno->created_at}}</td>
         <td>{{$alumno->updated_at}}</td>
-        <!--Botón de editar-->
         <td>
           <form action="/alumnos/{{$alumno->id}}" method="POST">
             @method("PUT")
             @csrf
           <button type="submit" class="cursor-pointer" >
+            <a href="/alumnos/{{$alumno->id}}/edit">
           <svg class="h-6 w-6 hover:bg-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
           <path d="M535.6 85.7C513.7 63.8 478.3 63.8 456.4 85.7L432 110.1L529.9 208L554.3 183.6C576.2 161.7 
           576.2 126.3 554.3 104.4L535.6 85.7zM236.4 305.7C230.3 311.8 225.6 319.3 222.9 327.6L193.3 416.4C190.4 425 
@@ -31,11 +35,10 @@
           241.9L398.1 144L236.4 305.7zM160 128C107 128 64 171 64 224L64 480C64 533 107 576 160 576L416 576C469 576 512 
           533 512 480L512 384C512 366.3 497.7 352 480 352C462.3 352 448 366.3 448 384L448 480C448 497.7 433.7 512 416 
           512L160 512C142.3 512 128 497.7 128 480L128 224C128 206.3 142.3 192 160 192L256 192C273.7 192 288 177.7 288 
-          160C288 142.3 273.7 128 256 128L160 128z"/></svg> 
+          160C288 142.3 273.7 128 256 128L160 128z"/></svg> </a>
         </button>
           </form>
         </td>
-          <!--Botón de borrar-->
           <td>
             <form action="/alumnos/{{$alumno->id}}" method="POST">
             @method("DELETE")
@@ -64,4 +67,5 @@
       event.target.closest('form').submit();
     }
     </script>
+    {{ $alumnos->links() }}
 </x-layouts.layout>
