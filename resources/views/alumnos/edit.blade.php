@@ -2,15 +2,14 @@
 
 <div class="flex justify-center items-center min-h-[70vh] bg-gray-300 py-10">
 
-    <form action="{{ route('alumnos.store') }}" method="POST" 
+    <form action="{{ route('alumnos.update', $alumno->id) }}" method="POST" 
           class="bg-white w-full max-w-lg p-8 rounded-2xl shadow-xl border border-gray-200">
-        @method("POST")
+        @csrf
+        @method("PUT")
 
         <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
-            Registro de alumno
+            Actualización de alumno
         </h2>
-
-        @csrf
         
         <div class="mb-5">
             <label for="nombre" class="block font-semibold text-gray-700 mb-1">

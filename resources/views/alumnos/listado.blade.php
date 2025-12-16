@@ -23,9 +23,9 @@
         <td>{{$alumno->created_at}}</td>
         <td>{{$alumno->updated_at}}</td>
         <td>
-          <form action="/alumnos/{{$alumno->id}}" method="POST">
-            @method("PUT")
+          <form action="/alumnos/{{$alumno->id}}/edit" method="GET">
             @csrf
+            @method("GET")
           <button type="submit" class="cursor-pointer" >
             <a href="/alumnos/{{$alumno->id}}/edit">
           <svg class="h-6 w-6 hover:bg-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -41,8 +41,8 @@
         </td>
           <td>
             <form action="/alumnos/{{$alumno->id}}" method="POST">
-            @method("DELETE")
             @csrf
+            @method("DELETE")
               <button onclick="confirmDelete(event)" class="cursor-pointer" >
             <svg class="h-6 w-6 on-hover:bg-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
            <path d="M232.7 69.9C237.1 56.8 249.3 48 263.1 48L377 48C390.8 48 403 56.8 407.4 69.9L416 96L512 96C529.7 96 

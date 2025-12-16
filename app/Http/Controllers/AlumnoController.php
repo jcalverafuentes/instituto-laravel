@@ -37,8 +37,7 @@ class AlumnoController extends Controller
         $datos_alumnos = $request->input();
         Alumno::create($datos_alumnos);
 
-    return redirect()->route('alumnos.index')
-                     ->with('success', 'Alumno creado correctamente.');
+    return redirect()->route('alumnos.index');
     }
 
     /**
@@ -63,9 +62,8 @@ class AlumnoController extends Controller
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
         
-
-        return redirect()->route('alumnos.index')
-            ->with('success', 'Alumno actualizado correctamente');
+        $alumno->update($request->validated());
+        return redirect()->route('alumnos.index');
     }
 
     /**

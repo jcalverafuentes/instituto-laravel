@@ -4,13 +4,12 @@
 
     <form action="{{ route('alumnos.store') }}" method="POST" 
           class="bg-white w-full max-w-lg p-8 rounded-2xl shadow-xl border border-gray-200">
+        @csrf
         @method("POST")
 
         <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
             Registro de alumno
         </h2>
-
-        @csrf
         
         <div class="mb-5">
             <label for="nombre" class="block font-semibold text-gray-700 mb-1">

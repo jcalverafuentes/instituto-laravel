@@ -21,10 +21,10 @@
         <span class="text-xl text-blue-900">{{ auth()->user()->name }}</span>
         <form action="logout" method="POST">
             @csrf
-            <input class="btn btn-secondary" type="submit" name="logout">
+            <button class="btn btn-secondary" type="submit" name="logout"> Salir </button>
         </form>
         @role("admin")
-        <a href="">
+        <a href="alumnos">
             <button type="submit" class="btn btn-primary">
                 Administrar
             </button>
