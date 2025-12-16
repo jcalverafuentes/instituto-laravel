@@ -62,7 +62,10 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        return redirect()->route('alumnos.index');
+        
+
+        return redirect()->route('alumnos.index')
+            ->with('success', 'Alumno actualizado correctamente');
     }
 
     /**
