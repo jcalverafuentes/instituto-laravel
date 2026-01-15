@@ -5,6 +5,7 @@
     <h1 class="text-blue-800 text-6xl">Gestión de instituto</h1>
 
     <div class="flex flex-row space-x-2 px-2">
+        <x-layouts.setlang/>
         @guest
         <a href="login">
             <button type="submit" class="btn btn-primary">

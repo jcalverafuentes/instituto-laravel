@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SetLanguageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,6 +23,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource("alumnos", AlumnoController::class)->middleware('auth');
+
+Route::get('profesores', [UserController::class])->name('profesores_listado');
+
+Route::get('role_alumno', [UserController::class, 'getAlumnos'])->name('alumnos_listado');
+
+Route::get('lang/{lang}', [SetLanguageController::class])->name('set_lang');
 
 
 
