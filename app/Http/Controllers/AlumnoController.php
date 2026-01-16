@@ -16,8 +16,8 @@ class AlumnoController extends Controller
     public function index()
     {
         //selecciona todos los alumnos (select * from alumnos)
-        $alumnos = Alumno::paginate(10);
-        $campos = Schema::getColumnListing('alumnos');
+        $alumnos = \App\Models\Alumno::orderBy('id')->paginate(10);
+        $campos = \Illuminate\Support\Facades\Schema::getColumnListing('alumnos');
         return view("alumnos.listado", compact("alumnos","campos"));
     }
 

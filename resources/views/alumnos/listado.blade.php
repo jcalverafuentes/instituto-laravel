@@ -4,7 +4,6 @@
         <button type="submit" class="btn btn-primary">
           <a href="{{route('alumnos.create')}}">Crear alumno</a>
         </button>
-        @role('alumno')
   <table class="table table-xs table-pin-rows table-pin-cols w-full">
     <thead> 
       <tr>
@@ -23,7 +22,6 @@
         <td>{{$alumno->fecha_nacimiento}}</td>
         <td>{{$alumno->created_at}}</td>
         <td>{{$alumno->updated_at}}</td>
-        @endrole
         <td>
           <form action="/alumnos/{{$alumno->id}}/edit" method="GET">
             @csrf
