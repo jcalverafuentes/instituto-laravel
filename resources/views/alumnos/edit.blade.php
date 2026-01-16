@@ -1,5 +1,5 @@
 <x-layouts.layout>
-@auth
+    @auth
 <div class="flex justify-center items-center min-h-[70vh] bg-gray-300 py-10">
 
     <form action="{{ route('alumnos.update', $alumno->id) }}" method="POST" 
@@ -8,7 +8,7 @@
         @method("PUT")
 
         <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
-            Actualización de alumno
+            ActualizaciÃ³n de alumno
         </h2>
         
         <div class="mb-5">
@@ -70,5 +70,5 @@
     </form>
 
 </div>
-@endauth
+    @endauth
 </x-layouts.layout>

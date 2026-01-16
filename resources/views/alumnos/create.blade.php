@@ -1,15 +1,14 @@
 <x-layouts.layout>
-@auth
+    @auth
 <div class="flex justify-center items-center min-h-[70vh] bg-gray-300 py-10">
-
-    <form action="{{ route('alumnos.store') }}" method="POST" 
+    <form action="{{ route('alumnos.store') }}" method="POST" class = "flex flex-col gap-4"
           class="bg-white w-full max-w-lg p-8 rounded-2xl shadow-xl border border-gray-200">
-        @csrf
-        @method("POST")
 
         <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
             Registro de alumno
         </h2>
+
+        @csrf
         
         <div class="mb-5">
             <label for="nombre" class="block font-semibold text-gray-700 mb-1">
@@ -18,9 +17,9 @@
             <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 
                        focus:ring-blue-400 focus:border-blue-400 outline-none" value="{{ old('nombre') }}">
-                       <div class="text-red-500 text-sm">
-                        {{ $errors->first('nombre') }}
-                    </div>
+                <div class="text-red-600 text-sm">
+                       {{ $errors->first("nombre")}}
+                </div>
         </div>
 
         <div class="mb-5">
@@ -30,9 +29,6 @@
             <input type="text" id="apellido" name="apellido" placeholder="Introduce tu apellido"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2
                        focus:ring-blue-400 focus:border-blue-400 outline-none" value="{{ old('apellido') }}">
-                       <div class="text-red-500 text-sm">
-                        {{ $errors->first('apellido') }}
-                    </div>
         </div>
 
         <div class="mb-5">
@@ -42,9 +38,6 @@
             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 
                        focus:ring-blue-400 focus:border-blue-400 outline-none" value="{{ old('fecha_nacimiento') }}">
-                       <div class="text-red-500 text-sm">
-                        {{ $errors->first('fecha_nacimiento') }}
-                    </div>
         </div>
 
         <div class="mb-6">
@@ -53,10 +46,7 @@
             </label>
             <input type="email" id="email" name="email" placeholder="Introduce tu email"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 
-                       focus:ring-blue-400 focus:border-blue-400 outline-none" value="{{ old('email') }}">
-                       <div class="text-red-500 text-sm">
-                        {{ $errors->first('email') }}
-                    </div>
+                       focus:ring-blue-400 focus:border-blue-400 outline-none" value = "{{ old('email') }}">
         </div>
 
         <div class="text-center">
@@ -70,5 +60,5 @@
     </form>
 
 </div>
-@endauth
+    @endauth
 </x-layouts.layout>

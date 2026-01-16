@@ -15,7 +15,8 @@ class Alumno extends Model
     'nombre',
     'apellido',
     'fecha_nacimiento',
-    'email'
+    'email',
+    'dni'
     ];
 
 }

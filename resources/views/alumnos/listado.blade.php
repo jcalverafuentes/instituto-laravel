@@ -1,10 +1,13 @@
 <x-layouts.layout>
-  @auth
-  <div class="overflow-x-auto w-full min-h-screen p-6">
+    @auth
+    <div class="overflow-x-auto w-full min-h-screen p-6">
+        @role('admin|teacher')
         <button type="submit" class="btn btn-primary">
-          <a href="{{route('alumnos.create')}}">Crear alumno</a>
+            <a href="{{ route('alumnos.create') }}">Crear alumno</a>
         </button>
-  <table class="table table-xs table-pin-rows table-pin-cols w-full">
+        @endrole
+        
+        <table class="table table-xs table-pin-rows table-pin-cols w-full">
     <thead> 
       <tr>
         @foreach ($campos as $campo)
@@ -60,12 +63,13 @@
 </tbody>
   </table>
 
-  <script>
-    function confirmDelete(event) {
-      event.preventDefault();
-     if (confirm ("¿Seguro que quieres borrar el alumno?"))
-      event.target.closest('form').submit();
-    }
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault();
+            if (confirm("Â¿Seguro que quieres borrar el alumno?")) {
+                event.target.closest('form').submit();
+            }
+        }
     </script>
     {{ $alumnos->links() }}
     @endauth
