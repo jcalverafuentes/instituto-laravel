@@ -1,36 +1,45 @@
-<header class="bg-header h-header flex flex-row justify-between items-center">
+<header class="w-full h-24 bg-blue-100 flex items-center justify-between px-6 shadow">
 
-    <img class="h-17 max-h-full px-3" src="{{asset('./images/logo.png')}}" alt="logo">
+    {{-- Logo --}}
+    <div class="flex items-center gap-3">
+        <img src="{{ asset('images/logo.png') }}" alt="logo" class="h-14">
+        <h1 class="text-3xl font-bold text-blue-800">
+            {{__("Gestión de Instituto")}} 
+        </h1>
+    </div>
 
-    <h1 class="text-blue-800 text-6xl">Gestión de instituto</h1>
+    {{-- Acciones --}}
+    <div class="flex items-center gap-3">
 
-    <div class="flex flex-row space-x-2 px-2">
-        <x-layouts.setlang/>
+        <x-layouts.setlang />
+
         @guest
-        <a href="login">
-            <button type="submit" class="btn btn-primary">
+            <a href="{{ route('login') }}" class="btn btn-primary">
                 Login
-            </button>
-        </a>
-        <a href="register">
-            <button type="submit" class="btn btn-primary">
+            </a>
+
+            <a href="{{ route('register') }}" class="btn btn-primary">
                 Register
-            </button>
-        </a>
+            </a>
         @endguest
+
         @auth
-        <span class="text-xl text-blue-900">{{ auth()->user()->name }}</span>
-        <form action="logout" method="POST">
-            @csrf
-            <button class="btn btn-secondary" type="submit" name="logout"> Salir </button>
-        </form>
-        @role("admin")
-        <a href="alumnos">
-            <button type="submit" class="btn btn-primary">
-                Administrar
-            </button>
-        </a>
-        @endrole
+            <span class="text-lg font-semibold text-blue-900">
+                {{ auth()->user()->name }}
+            </span>
+
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-secondary">
+                    Salir
+                </button>
+            </form>
+
+            @role('admin')
+                <a href="{{ route('alumnos.index') }}" class="btn btn-primary">
+                    Administrar
+                </a>
+            @endrole
         @endauth
     </div>
 </header>

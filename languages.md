@@ -43,7 +43,7 @@ En web.php añadimos
 ```php
 use App\Http\Controllers\SetLanguageController;
 
-Route::get("lang/{lang}", [SetLanguageController::class])->name("set_lang");
+Route::get("lang/{lang}", SetLanguageController::class)->name("set_lang");
 
 ```
 

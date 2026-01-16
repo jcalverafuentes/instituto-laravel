@@ -1,5 +1,5 @@
 <x-layouts.layout>
-  
+  @auth
   <div class="overflow-x-auto w-full min-h-screen p-6">
         <button type="submit" class="btn btn-primary">
           <a href="{{route('alumnos.create')}}">Crear alumno</a>
@@ -68,4 +68,5 @@
     }
     </script>
     {{ $alumnos->links() }}
+    @endauth
 </x-layouts.layout>

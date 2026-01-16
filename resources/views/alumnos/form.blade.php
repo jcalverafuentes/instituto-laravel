@@ -1,3 +1,4 @@
+@auth
 <div class="mb-5">
     <label class="block font-semibold text-gray-700 mb-1">Nombre</label>
     <input type="text" name="nombre"
@@ -29,3 +30,4 @@
            value="{{ old('email', $alumno->email ?? '') }}">
     <p class="text-red-500 text-sm">{{ $errors->first('email') }}</p>
 </div>
+@endauth

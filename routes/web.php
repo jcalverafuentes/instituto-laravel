@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SetLanguageController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,7 @@ Route::get('profesores', [UserController::class])->name('profesores_listado');
 
 Route::get('role_alumno', [UserController::class, 'getAlumnos'])->name('alumnos_listado');
 
-Route::get('lang/{lang}', [SetLanguageController::class])->name('set_lang');
+Route::get('lang/{lang}', SetLanguageController::class)->name('set_lang');
 
 
 

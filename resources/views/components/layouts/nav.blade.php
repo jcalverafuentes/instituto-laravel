@@ -2,10 +2,15 @@
   <button class="btn btn-soft btn-primary">
     <a href="about">About</a>
   </button>
+    <button class="btn btn-soft btn-warning">
+    Contacta
+  </button>
   <button class="btn btn-soft btn-secondary">
     Noticias
   </button>
-  <button class="btn btn-soft btn-warning">
-    Contactar
+  @auth
+  <button class="btn btn-soft btn-terciary">
+    Referencias
   </button>
+  @endauth
 </nav>

@@ -7,11 +7,11 @@ return[
   ],
   "en"=>[
     "name"=>"Ingles",
-    "flag"=>"🇫🇷"
+    "flag"=>"🇬🇧"
   ],
   "fr"=>[
     "name"=>"Frances",
-    "flag"=>"🇬🇧"
+    "flag"=>"🇫🇷"
   ]
   ]
 

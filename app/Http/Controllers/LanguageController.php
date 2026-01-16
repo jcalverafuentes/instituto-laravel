@@ -9,9 +9,10 @@ class LanguageController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, string $locale)
     {
-        session() ->put('locale', $locale);
+        session()->put('locale', $locale);
         app()-> setLocale($locale);
+        return redirect()->back();
     }
 }
