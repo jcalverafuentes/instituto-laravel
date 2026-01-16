@@ -1,3 +1,3 @@
-<main class="flex-1 w-full p-6">
+<main class="flex-1 w-full">
     {{ $slot }}
 </main>

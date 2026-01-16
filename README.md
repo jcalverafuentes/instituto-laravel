@@ -7,3 +7,9 @@ Este es una practica para el módulo de servidor
 composer require "laravel/breeze"
 
 ````
+
+
+## Como hacer migración 
+
+
+- php artisan migrate:fresh --seed

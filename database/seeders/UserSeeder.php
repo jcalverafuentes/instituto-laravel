@@ -14,20 +14,52 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         
-        User::factory()->count(10)->create()->each(function ($user) {
-            $user->assignRole("profesor");
+        /*User::factory()->count(5)->create()->each(function ($profesor) {
+            $profesor->assignRole("profesor");
         });
-        User::factory()->count(50)->create()->each(function ($user) {
-            $user->assignRole("alumno");
+        User::factory()->count(5)->create()->each(function ($alumno) {
+            $alumno->assignRole("alumno");
         });
-        
-        $user = User::create([
+// Se ha creado el admin de esta forma asi sabemos las credenciales de acceso
+        $admin = User::create([
             'name' => 'admin',
             'apellido' => 'admin',
             'password' => bcrypt('12345678'),
             'fecha_nacimiento' => '2000-01-01',
             'email' => 'a@a.com'
         ]);
-        $user->assignRole("admin");
+        $admin->assignRole("admin"); */
+
+        User::factory()
+            ->count(5)
+            ->create([
+                'password' => bcrypt('12345678'),
+            ])
+            ->each(function ($profesor) {
+                $profesor->assignRole('profesor');
+            });
+
+
+        User::factory()
+            ->count(5)
+            ->create([
+                'password' => bcrypt('12345678'),
+            ])
+            ->each(function ($alumno) {
+                $alumno->assignRole('alumno');
+            });
+
+
+        $admin = User::create([
+            'name' => 'admin',
+            'apellido' => 'admin',
+            'password' => bcrypt('12345678'),
+            'fecha_nacimiento' => '2000-01-01',
+            'email' => 'a@a.com',
+        ]);
+
+        $admin->assignRole('admin');
+
+        
     }
 }

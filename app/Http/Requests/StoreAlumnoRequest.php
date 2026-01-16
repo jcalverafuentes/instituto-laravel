@@ -26,6 +26,7 @@ class StoreAlumnoRequest extends FormRequest
             "apellido" => "required|string|min:5|max:255",
             "email" => "required|email|unique:alumnos,email",
             "fecha_nacimiento" => "required|date",
+            "dni" => "required|string|min:8|max:8",
         ];
     }
 }
